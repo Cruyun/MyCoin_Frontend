@@ -7,14 +7,12 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 module.exports = {
     entry: {
         'week': ['./src/week.js'],
-        'month': ['./src/month.js'],
-        vendor: ["vue", "whatwg-fetch"]
-
+        'month': ['./src/month.js']
     },
     output: {
-        path: path.join(__dirname, ""),
-        publicPath: '/static/',
-        filename: '[name].js'
+        path: path.join(__dirname, "dist"),
+        publicPath: '',
+        filename: '/static/[name].[hash].js'
     },
     devtool: '#eval-source-map',
     module: {
@@ -44,6 +42,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.scss', '.vue'],
+        alias: {
+            'vue': path.resolve(__dirname, 'node_modules/vue/dist/vue.runtime.min')
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -67,8 +68,14 @@ module.exports = {
             template: './template/month.ejs',
             chunks: ['month']
         }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: true,
+            compress: {
+                warnings: false,
+            },
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js")
+        new webpack.optimize.CommonsChunkPlugin("vendor", "static/vendor.[hash].js")
     ]
 };

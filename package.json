@@ -1,44 +1,51 @@
 {
-  "name": "mycoin",
-  "version": "1.0.0",
-  "description": "",
-  "main": "week.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ninja start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Four-Undefined/MyCoin_Frontend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Four-Undefined/MyCoin_Frontend/issues"
-  },
-  "homepage": "https://github.com/Four-Undefined/MyCoin_Frontend#readme",
-  "dependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-plugin-transform-runtime": "^6.0.0",
-    "babel-preset-es2015": "^6.0.0",
-    "babel-preset-stage-2": "^6.0.0",
-    "babel-register": "^6.0.0",
-    "css-loader": "^0.26.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.10.1",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^4.1.1",
-    "style-loader": "^0.13.1",
-    "stylus-loader": "^3.0.1",
-    "v-charts": "^1.2.9",
-    "webpack": "^1.13.1",
-    "webpack-hot-middleware": "^2.13.2"
-  },
-  "devDependencies": {
-    "vue": "^2.0.5",
-    "vue-loader": "^11.0.0",
-    "vue-template-compiler": "^2.1.10",
-    "whatwg-fetch": "^1.0.0"
-  }
+    "name": "mycoin",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rm -rf dist/* && webpack --config webpack.build.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Four-Undefined/MyCoin_Frontend.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Four-Undefined/MyCoin_Frontend/issues"
+    },
+    "homepage": "https://github.com/Four-Undefined/MyCoin_Frontend#readme",
+    "dependencies": {
+        "swig": "^1.4.2",
+        "vue": "^2.0.5",
+        "vue-router": "^2.3.0",
+        "whatwg-fetch": "^1.0.0"
+    },
+    "devDependencies": {
+        "vue": "^2.0.5",
+        "vue-loader": "^11.0.0",
+        "vue-template-compiler": "^2.1.10",
+        "whatwg-fetch": "^1.0.0",
+        "node-sass": "^4.5.0",
+        "sass-loader": "^4.1.1",
+        "style-loader": "^0.13.1",
+        "webpack": "^1.13.1",
+        "webpack-hot-middleware": "^2.13.2",
+        "babel-core": "^6.0.0",
+        "babel-loader": "^6.0.0",
+        "babel-plugin-transform-runtime": "^6.0.0",
+        "babel-preset-es2015": "^6.0.0",
+        "babel-preset-stage-2": "^6.0.0",
+        "babel-register": "^6.0.0",
+        "css-loader": "^0.26.1",
+        "extract-text-webpack-plugin": "^1.0.1",
+        "file-loader": "^0.10.1",
+        "html-loader": "^0.4.4",
+        "html-webpack-harddisk-plugin": "^0.1.0",
+        "html-webpack-plugin": "^2.28.0",
+        "url-loader": "^0.5.8",
+        "webpack-bundle-analyzer": "^2.8.2"
+    }
 }
