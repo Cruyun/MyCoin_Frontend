@@ -20,7 +20,12 @@
             <span class="max">{{maxExpend}}</span>
             <span class="word">元</span>
         </div>
-        <div v-if="edu">教育</div>
+        <div v-if="edu" class="analysis">教育</div>
+        <div v-if="normal" class="analysis"></div>
+        <div v-if="food" class="analysis"></div>
+        <div v-if="trip" class="analysis"></div>
+        <div v-if="entertain" class="analysis"></div>
+        <div v-if="clothes" class="analysis"></div>
     </div>
 </template>
 <script>
