@@ -11,7 +11,7 @@
         "async": false
     }, {
         "name": "get_seven",
-        "endpoint": "/api/get_seven",
+        "endpoint": "/api/get_seven/",
         "method": "get",
         "async": true
     }, {
@@ -26,7 +26,7 @@
         "async": false
     }, {
         "name": "get_some",
-        "endpoint": "/api/get_some",
+        "endpoint": "/api/get_some/",
         "async": true
     }],
     "data": {

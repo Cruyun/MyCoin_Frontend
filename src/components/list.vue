@@ -25,11 +25,12 @@
 export default {
     data() {
             return {
-                items: ['class', 'expend']
+                items: ['class', 'expend'],
+                result: ['class', 'expend']
             }
         },
         created() {
-            fetch('/api/get_some').then(res => {
+            fetch('/api/get_some/').then(res => {
                     return res.json()
                 })
                 .then(res => {

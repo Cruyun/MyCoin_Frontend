@@ -20,12 +20,12 @@
             <span class="max">{{maxExpend}}</span>
             <span class="word">元</span>
         </div>
-        <div v-if="edu" class="analysis">教育</div>
-        <div v-if="normal" class="analysis"></div>
-        <div v-if="food" class="analysis"></div>
-        <div v-if="trip" class="analysis"></div>
-        <div v-if="entertain" class="analysis"></div>
-        <div v-if="clothes" class="analysis"></div>
+        <div v-if="edu" class="analysis">你真是个爱学习的好宝宝</div>
+        <div v-if="normal" class="analysis">消费虽易，生活不易</div>
+        <div v-if="food" class="analysis">哈哈，你是个小吃货</div>
+        <div v-if="trip" class="analysis">行万里路的你去看了更大的世界吗？</div>
+        <div v-if="entertain" class="analysis">浪浪浪浪，还不去学习？</div>
+        <div v-if="clothes" class="analysis">捕获一只爱美的你</div>
     </div>
 </template>
 <script>
@@ -93,3 +93,11 @@ export default {
         }
 }
 </script>
+<style lang="sass">
+.analysis {
+    color: #f2a6b4;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 26px;
+}
+</style>
