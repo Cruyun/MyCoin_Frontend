@@ -43,7 +43,11 @@ export default {
             MaxClass: " ",
             flag: false,
             edu: false,
-            trip: false
+            trip: false,
+            entertain: false,
+            clothes: false,
+            normal: false,
+            food: false
             }
         },
         components: {

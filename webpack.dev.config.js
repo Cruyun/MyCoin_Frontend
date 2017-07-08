@@ -6,15 +6,16 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 module.exports = {
     entry: {
-        'week': ['./src/week.js'],
-        'month': ['./src/month.js'],
+        'week.js': ['./src/week.js'],
+        'month.js': ['./src/month.js'],
+        'list.js': ['./src/list.js'],
         vendor: ["vue", "whatwg-fetch"]
 
     },
     output: {
         path: path.join(__dirname, ""),
         publicPath: '/static/',
-        filename: '[name].js'
+        filename: '[name]'
     },
     devtool: '#eval-source-map',
     module: {
@@ -48,7 +49,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            filename: 'template/main/base.html',
+            filename: 'template/base.html',
             inject: false,
             template: './template/base.ejs',
             chunks: ['vendor']
@@ -58,15 +59,23 @@ module.exports = {
             filename: 'template/week.html',
             inject: false,
             template: './template/week.ejs',
-            chunks: ['week']
+            chunks: ['week.js']
         }),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             filename: 'template/month.html',
             inject: false,
             template: './template/month.ejs',
-            chunks: ['month']
+            chunks: ['month.js']
         }),
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            filename: 'template/list.html',
+            inject: false,
+            template: './template/list.ejs',
+            chunks: ['list.js']
+        }),
+        new HtmlWebpackHarddiskPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js")
