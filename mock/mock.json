@@ -1,0 +1,73 @@
+{
+    "routes": [{
+        "name": "week",
+        "endpoint": "/",
+        "template": "week",
+        "async": false
+    }, {
+        "name": "month",
+        "endpoint": "/month",
+        "template": "month",
+        "async": false
+    }, {
+        "name": "get_seven",
+        "endpoint": "/api/get_seven",
+        "async": true
+    }, {
+        "name": "get_month",
+        "endpoint": "/api/get_month/",
+        "async": true
+    }],
+    "data": {
+        "get_seven": {
+            "sumup": [{
+                "date": 1,
+                "expend": 23
+            }, {
+                "date": 2,
+                "expend": 22
+            }, {
+                "date": 3,
+                "expend": 29
+            }, {
+                "date": 4,
+                "expend": 40
+            }, {
+                "date": 5,
+                "expend": 33
+            }, {
+                "date": 6,
+                "expend": 73
+            }, {
+                "date": 7,
+                "expend": 79
+            }],
+            "maxDay": ["7月2日",32],
+            "TotalExpend": 200,
+            "MaxClass":"教育",
+            "maxExpend": 71,
+            "result": [
+                { "class": "教育", "expend": 15 },
+                { "class": "一般", "expend": 12 },
+                { "class": "饮食", "expend": 21 },
+                { "class": "出行", "expend": 41 },
+                { "class": "娱乐", "expend": 31 },
+                { "class": "服饰", "expend": 71 }
+            ]
+        },
+        "get_month": {
+            "result": [
+                { "class": "教育", "expend": 852 },
+                { "class": "一般", "expend": 122 },
+                { "class": "饮食", "expend": 212 },
+                { "class": "出行", "expend": 412 },
+                { "class": "娱乐", "expend": 312 },
+                { "class": "服饰", "expend": 712 }
+            ],
+            "MaxClass":"教育",
+            "TotalExpend": 7123,
+            "maxExpend": 712
+        }
+    }
+
+}
