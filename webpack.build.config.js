@@ -7,7 +7,8 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 module.exports = {
     entry: {
         'week': ['./src/week.js'],
-        'month': ['./src/month.js']
+        'month': ['./src/month.js'],
+        'list': ['./src/list.js']
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -67,6 +68,13 @@ module.exports = {
             inject: false,
             template: './template/month.ejs',
             chunks: ['month']
+        }),
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            filename: 'template/list.html',
+            inject: false,
+            template: './template/list.ejs',
+            chunks: ['list']
         }),
         new webpack.optimize.UglifyJsPlugin({
             mangle: true,
