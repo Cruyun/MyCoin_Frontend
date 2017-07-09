@@ -25,8 +25,8 @@
 export default {
     data() {
             return {
-                items: ['class', 'expend'],
-                result: ['class', 'expend']
+                items: [],
+                result: ['class','expend']
             }
         },
         created() {
