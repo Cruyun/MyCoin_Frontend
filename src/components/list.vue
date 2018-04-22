@@ -22,6 +22,8 @@
     </div>
 </template>
 <script>
+import YAJB from 'yajb-js';
+
 export default {
     data() {
             return {
@@ -30,7 +32,15 @@ export default {
             }
         },
         created() {
-            fetch('/api/get_some/').then(res => {
+            var yajb = new YAJB()
+            data = JSON.parse(yajb.data)
+
+            fetch('/api/get_some/', {
+                headers: {
+                    "token": data,
+                    "Content-Type" : "application/json"
+                }
+            }).then(res => {
                     return res.json()
                 })
                 .then(res => {

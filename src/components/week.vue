@@ -36,8 +36,9 @@
     </div>
 </template>
 <script>
-import VeLine from 'v-charts/lib/line'
-import VePie from 'v-charts/lib/pie'
+import VeLine from 'v-charts/lib/line';
+import VePie from 'v-charts/lib/pie';
+import YAJB from 'yajb-js';
 
 export default {
     data() {
@@ -63,7 +64,15 @@ export default {
             VePie
         },
         created() {
-            fetch("api/get_seven/").then(res => {
+            var yajb = new YAJB()
+            data = JSON.parse(yajb.data)
+
+            fetch("/api/get_seven/", {
+                headers: {
+                    "token": data,
+                    "Content-Type" : "application/json"
+                }
+            }).then(res => {
                 return res.json()
             })
             .then(res => {
