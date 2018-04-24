@@ -13,10 +13,10 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        'week.js': ['./src/week.js'],
-        'month.js': ['./src/month.js'],
-        'list.js': ['./src/list.js'],
-        //vendor: ["vue", "whatwg-fetch"]
+        'list': ['./src/list.js'],
+        'week': ['./src/week.js'],
+        'month': ['./src/month.js'],
+        // vendor: ["vue", "whatwg-fetch", "vuelidate", "vue-router"]
     },
     output: {
         path: path.join(__dirname, "../"),
@@ -53,7 +53,7 @@ module.exports = {
         // split vendor js into its own file
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: function(module, count) {
+            minChunks: function (module, count) {
                 // any required modules inside node_modules are extracted to vendor
                 return (
                     module.resource &&
@@ -77,39 +77,32 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            filename: './template/base.html',
+            filename: 'template/base.html',
             inject: false,
             template: path.join(__dirname, '../template/base.ejs'),
-            //favicon: './src/pictures/favicon.png',
             chunks: ['manifest', 'vendor']
-        }),
-        new HtmlWebpackPlugin({
-            alwaysWriteToDisk: true,
-            filename: 'template/week.html',
-            inject: false,
-            template: './template/week.ejs',
-            chunks: ['week.js']
-        }),
-        new HtmlWebpackPlugin({
-            alwaysWriteToDisk: true,
-            filename: 'template/month.html',
-            inject: false,
-            template: './template/month.ejs',
-            chunks: ['month.js']
         }),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             filename: 'template/list.html',
             inject: false,
-            template: './template/list.ejs',
-            chunks: ['list.js']
+            template: path.join(__dirname, '../template/list.ejs'),
+            chunks: ['list']
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: true,
-            compress: {
-                warnings: false,
-            },
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            filename: 'template/week.html',
+            inject: false,
+            template: path.join(__dirname, '../template/week.ejs'),
+            chunks: ['week']
         }),
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            filename: 'template/month.html',
+            inject: false,
+            template: path.join(__dirname, '../template/month.ejs'),
+            chunks: ['month']
+        }), 
         new HtmlWebpackHarddiskPlugin()
     ]
 }
