@@ -40,6 +40,8 @@ export default {
         },
         created() {
             var yajb = new YAJB()
+            yajb.send("coin", "data")
+            
             this.data = JSON.parse(yajb.data)
 
             fetch('/api/get_some/', {
