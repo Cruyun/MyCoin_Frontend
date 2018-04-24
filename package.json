@@ -26,6 +26,7 @@
     "v-charts": "^1.16.10",
     "vue": "^2.5.16",
     "vue-echarts": "^3.0.7",
+    "webpack-merge": "^4.1.2",
     "whatwg-fetch": "^1.0.0",
     "yajb-js": "^0.1.0"
   },
