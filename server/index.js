@@ -11,7 +11,7 @@ const templateRoot = path.join(__dirname, "../dist/template");
 
 app.use(userAgent);
 
-router.get("/list", function(ctx, next) {
+router.get("/", function(ctx, next) {
   let template = swig.compileFile(path.resolve(templateRoot, "list.html"));
   ctx.body = template({});
 });
