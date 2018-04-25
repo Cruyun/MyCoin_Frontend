@@ -34,7 +34,7 @@ export default {
                 education: 0,
                 clothes: 0,
                 food: 0,
-                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.dCu8-1xcMk9KOEEY0QazvG_8S5czwPtnKZvGbi-VEhQ",
+                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTl9.6EmnjIj0NcizMbgOvYIaSmb88UoIROxY4WayUINO-gA",
                 // data: ""
             }
         },
