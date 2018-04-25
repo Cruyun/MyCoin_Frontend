@@ -25,7 +25,7 @@
 
 <script>
     import VePie from 'v-charts/lib/pie';
-    import YAJB from 'yajb-js';
+    // import YAJB from 'yajb-js';
     
     export default {
         data() {
@@ -62,10 +62,9 @@
             var d = new Date()
             this.month = d.getMonth() + 1;
             console.log(this.month)
-            var yajb = new YAJB()
-            this.data = JSON.parse(yajb.data)
-    
-            
+            // var yajb = new YAJB()
+            // this.data = JSON.parse(yajb.data)
+          
             fetch("/api/get_month/" + this.month + '/', {
                     headers: {
                         "token": this.data,

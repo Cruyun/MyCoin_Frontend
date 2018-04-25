@@ -22,7 +22,7 @@
     </div>
 </template>
 <script>
-import YAJB from 'yajb-js';
+// import YAJB from 'yajb-js';
 
 export default {
     data() {
@@ -39,8 +39,8 @@ export default {
             }
         },
         created() {
-            var yajb = new YAJB()           
-            this.data = JSON.parse(yajb.data)
+            // var yajb = new YAJB()           
+            // this.data = JSON.parse(yajb.data)
 
             fetch('/api/get_some/', {
                 headers: {
@@ -51,6 +51,7 @@ export default {
                     return res.json()
                 })
                 .then(res => {
+                    console.log(res)
                     this.total = res.result[6].expend
                     this.normal = res.result[1].expend
                     this.trip = res.result[3].expend

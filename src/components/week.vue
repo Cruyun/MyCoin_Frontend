@@ -23,7 +23,7 @@
 <script>
     import VeLine from 'v-charts/lib/line';
     import VePie from 'v-charts/lib/pie';
-    import YAJB from 'yajb-js';
+    // import YAJB from 'yajb-js';
     
     export default {
         data() {
@@ -67,8 +67,8 @@
             VePie
         },
         created() {
-            var yajb = new YAJB()
-            this.data = JSON.parse(yajb.data)
+            // var yajb = new YAJB()
+            // this.data = JSON.parse(yajb.data)
             
             fetch("/api/get_seven/", {
                     headers: {

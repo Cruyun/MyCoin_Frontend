@@ -16,7 +16,7 @@ module.exports = {
         'list': ['./src/list.js'],
         'week': ['./src/week.js'],
         'month': ['./src/month.js'],
-        // vendor: ["vue", "whatwg-fetch", "vuelidate", "vue-router"]
+        // vendor: ["vue", "whatwg-fetch"]
     },
     output: {
         path: path.join(__dirname, "../"),
