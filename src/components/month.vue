@@ -63,7 +63,7 @@
             this.month = d.getMonth() + 1;
             console.log(this.month)
             // var yajb = new YAJB()
-            // this.data = JSON.parse(yajb.data)
+            this.data = window.location.pathname.split('/')[1];
           
             fetch("/api/get_month/" + this.month + '/', {
                     headers: {

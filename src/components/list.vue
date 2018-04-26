@@ -40,8 +40,9 @@ export default {
         },
         created() {
             // var yajb = new YAJB()           
-            // this.data = JSON.parse(yajb.data)
+            this.data = window.location.pathname.split('/')[1];
 
+            console.log(this.data)
             fetch('/api/get_some/', {
                 headers: {
                     "token": this.data,
@@ -51,7 +52,7 @@ export default {
                     return res.json()
                 })
                 .then(res => {
-                    console.log(res)
+                    console.log("res",res)
                     this.total = res.result[6].expend
                     this.normal = res.result[1].expend
                     this.trip = res.result[3].expend
@@ -59,6 +60,7 @@ export default {
                     this.education = res.result[0].expend
                     this.clothes = res.result[5].expend
                     this.food = res.result[2].expend
+                    console.log(res)
                 })
         }
 }

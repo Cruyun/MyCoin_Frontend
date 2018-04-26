@@ -11,17 +11,17 @@ const templateRoot = path.join(__dirname, "../dist/template");
 
 app.use(userAgent);
 
-router.get("/", function(ctx, next) {
+router.get("/:id/list", function(ctx, next) {
   let template = swig.compileFile(path.resolve(templateRoot, "list.html"));
   ctx.body = template({});
 });
 
-router.get("/month", function(ctx, next) {
+router.get("/:id/month", function(ctx, next) {
   let template = swig.compileFile(path.resolve(templateRoot, "month.html"));
   ctx.body = template({});
 });
 
-router.get("/week", function(ctx, next) {
+router.get("/:id/week", function(ctx, next) {
   let template = swig.compileFile(path.resolve(templateRoot, "week.html"));
   ctx.body = template({});
 });

@@ -58,8 +58,8 @@
                 linescale: {
                     type: Object
                 },
-                // data: "",
-                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.dCu8-1xcMk9KOEEY0QazvG_8S5czwPtnKZvGbi-VEhQ"
+                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.dCu8-1xcMk9KOEEY0QazvG_8S5czwPtnKZvGbi-VEhQ",
+                // data: ""
             }
         },
         components: {
@@ -69,6 +69,7 @@
         created() {
             // var yajb = new YAJB()
             // this.data = JSON.parse(yajb.data)
+            this.data = window.location.pathname.split('/')[1];
             
             fetch("/api/get_seven/", {
                     headers: {
