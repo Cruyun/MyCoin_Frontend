@@ -57,6 +57,7 @@
             this.data = [];
             this.tip = true;
           } else {
+            this.tip = false;
             this.data = res.response.list[0].data;
             for (let i of res.response.list[0].data) {
               this.sum += parseInt(i.smtTransMoney);
