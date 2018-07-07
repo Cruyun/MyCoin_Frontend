@@ -1,79 +1,73 @@
 <template>
     <div class="wrap">
-    <div class="center">
-        <div class="today inline-block vertical-align">今天</div>
-        <div class="icon inline-block vertical-align">
-            <svg viewBox="0 0 40.8 438.6">
-                <use xmlns:xlink="http://www.w3.org/1999/svg" xlink:href="#icon"></use>
-            </svg>
+        <div class="start" v-if="this.start">
+            <img class="picture" src="http://p688ihx0v.bkt.clouddn.com/coin.png">
+            <div class="text">开始记账吧~</div>
         </div>
-        <div class="line inline-block vertical-align">
-            <div class="today">总支出：{{this.total}}</div>
-            <div class="col">
-                <div class="setting">一般：{{this.normal}}</div>
-                <div class="setting">出行：{{this.trip}}</div>
-                <div class="setting">娱乐：{{this.entertain}}</div>
-                <div class="setting">教育：{{this.education}}</div>
-                <div class="setting">服饰：{{this.clothes}}</div>
-                <div class="setting">饮食：{{this.food}}</div>
+        <div class="center" v-if="!this.start">
+            <div v-for="item in items" :key="item.id" class="items">
+                <div class="today inline-block vertical-align">{{item.日期}}</div>
+                <div class="icon inline-block vertical-align">
+                    <svg viewBox="0 0 40.8 438.6">
+                        <use xmlns:xlink="http://www.w3.org/1999/svg" xlink:href="#icon"></use>
+                    </svg>
+                </div>
+                <div class="line inline-block vertical-align">
+                    <div class="today">总支出：{{item.总和.toFixed(2)}}</div>
+                    <div class="col">
+                        <div class="setting">一般：{{item.一般.toFixed(2)}}</div>
+                        <div class="setting">出行：{{item.出行.toFixed(2)}}</div>
+                        <div class="setting">娱乐：{{item.娱乐.toFixed(2)}}</div>
+                        <div class="setting">教育：{{item.教育.toFixed(2)}}</div>
+                        <div class="setting">服饰：{{item.服饰.toFixed(2)}}</div>
+                        <div class="setting">饮食：{{item.饮食.toFixed(2)}}</div>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </template>
-<script>
-// import YAJB from 'yajb-js';
 
-export default {
-    data() {
+<script>
+    export default {
+        data() {
             return {
-                total: 0,
-                normal: 0,
-                trip: 0,
-                entertain: 0,
-                education: 0,
-                clothes: 0,
-                food: 0,
-                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.dCu8-1xcMk9KOEEY0QazvG_8S5czwPtnKZvGbi-VEhQ",
-                // data: ""
+                start: false,
+                items: [],
+                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.XhjfuL0l4giQZAIVZN29RQwDFVgeoFZWnkhdYztr8pk",
             }
         },
         created() {
-            // var yajb = new YAJB()           
-            this.data = window.location.pathname.split('/')[1];
-
-            console.log(this.data)
-            fetch('/api/get_some/', {
-                headers: {
-                    "token": this.data,
-                    "Content-Type" : "application/json"
-                }
-            }).then(res => {
+            if (window.location.pathname.split('/')[1])
+                this.data = window.location.pathname.split('/')[1];
+    
+            fetch('/api/get_two/', {
+                    headers: {
+                        "token": this.data,
+                        "Content-Type": "application/json"
+                    }
+                }).then(res => {
                     return res.json()
                 })
                 .then(res => {
-                    console.log("res",res)
-                    this.total = res.result[6].expend
-                    this.normal = res.result[1].expend
-                    this.trip = res.result[3].expend
-                    this.entertain = res.result[4].expend
-                    this.education = res.result[0].expend
-                    this.clothes = res.result[5].expend
-                    this.food = res.result[2].expend
-                    console.log(res)
+                    if (res.expend.length == 0) {
+                        this.start = true
+                    } else {
+                        this.items = res.expend
+                    }
                 })
         }
-}
+    }
 </script>
+
 <style lang="sass">
 .today {
     font-size: 20px;
     color: #7d7d7d;
-    margin-bottom: 50px;
 }
 
 .icon {
-    width: 19%;
+    width: 10%;
     height: 300px;
     margin-left: 10px;
 }
@@ -87,17 +81,36 @@ export default {
 }
 
 .setting {
-    margin-bottom: 60px;
-    margin-left: 20px;
+    margin-bottom: 18px;
+    margin-left: 10px;
     font-size: 19px;
     color: #cdcdcd;
 }
 
 .col {
-    margin-top: 24px;
+    margin-top: 5px;
 }
 .center {
 	margin: 0 auto;
 	padding: 50px;
 }
+.picture {
+    width: 40%;
+    margin-top: 20px;
+  }
+.text {
+    margin-top: 20px;
+    color: #a1b7ec;
+    font-size: 24px;
+  }
+  .start {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(70%);
+  }
+  .items {
+      margin-top: 20px;
+  }
 </style>

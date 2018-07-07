@@ -26,6 +26,11 @@ router.get("/:id/week", function(ctx, next) {
   ctx.body = template({});
 });
 
+router.get("/card", function(ctx, next) {
+  let template = swig.compileFile(path.resolve(templateRoot, "card.html"));
+  ctx.body = template({});
+});
+
 router.get(/^\/static(?:\/|$)/, async ctx => {
   let filepath = ctx.path.replace(/static\//, "");
   await send(ctx, filepath, {

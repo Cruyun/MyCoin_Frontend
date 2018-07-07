@@ -21,8 +21,8 @@
 </template>
 
 <script>
-    import VeLine from 'v-charts/lib/line';
-    import VePie from 'v-charts/lib/pie';
+    // import VeLine from 'v-charts/lib/line';
+    // import VePie from 'v-charts/lib/pie';
     // import YAJB from 'yajb-js';
     
     export default {
@@ -58,8 +58,7 @@
                 linescale: {
                     type: Object
                 },
-                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.dCu8-1xcMk9KOEEY0QazvG_8S5czwPtnKZvGbi-VEhQ",
-                // data: ""
+                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.XhjfuL0l4giQZAIVZN29RQwDFVgeoFZWnkhdYztr8pk",
             }
         },
         components: {
@@ -67,8 +66,7 @@
             VePie
         },
         created() {
-            // var yajb = new YAJB()
-            // this.data = JSON.parse(yajb.data)
+            if (window.location.pathname.split('/')[1])
             this.data = window.location.pathname.split('/')[1];
             
             fetch("/api/get_seven/", {

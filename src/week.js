@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import VCharts from 'v-charts'
+// import VCharts from 'v-charts'
 import Week from './components/week'
 import './scss/common.scss'
 
-Vue.use(VCharts)
+// Vue.use(VCharts)
 
 new Vue({
 	el:"#week",

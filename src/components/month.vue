@@ -24,8 +24,7 @@
 </template>
 
 <script>
-    import VePie from 'v-charts/lib/pie';
-    // import YAJB from 'yajb-js';
+    // import VePie from 'v-charts/lib/pie';
     
     export default {
         data() {
@@ -50,7 +49,7 @@
                 },
                 chartColors: [],
                 legend_position: "",
-                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.dCu8-1xcMk9KOEEY0QazvG_8S5czwPtnKZvGbi-VEhQ",
+                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.XhjfuL0l4giQZAIVZN29RQwDFVgeoFZWnkhdYztr8pk",
                 // data: "",
                 month: 4
             }
@@ -61,8 +60,6 @@
         created() {
             var d = new Date()
             this.month = d.getMonth() + 1;
-            console.log(this.month)
-            // var yajb = new YAJB()
             this.data = window.location.pathname.split('/')[1];
           
             fetch("/api/get_month/" + this.month + '/', {
@@ -74,7 +71,6 @@
                     return res.json()
                 })
                 .then(res => {
-                    console.log(res)
                     this.chartData = {
                         columns: ['class', 'expend'],
                         rows: res.result

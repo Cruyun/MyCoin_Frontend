@@ -16,6 +16,7 @@ module.exports = {
         'list': ['./src/list.js'],
         'week': ['./src/week.js'],
         'month': ['./src/month.js'],
+        'card': ['./src/card.js'],
         // vendor: ["vue", "whatwg-fetch"]
     },
     output: {
@@ -102,7 +103,14 @@ module.exports = {
             inject: false,
             template: path.join(__dirname, '../template/month.ejs'),
             chunks: ['month']
-        }), 
+        }),
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            filename: 'template/card.html',
+            inject: false,
+            template: path.join(__dirname, '../template/card.ejs'),
+            chunks: ['card']
+        }),
         new HtmlWebpackHarddiskPlugin()
     ]
 }
