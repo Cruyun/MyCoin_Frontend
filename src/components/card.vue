@@ -17,8 +17,8 @@
           </ul>
         </div>
         <div class="btn">
-          <div class="view_day" v-on:click="preDay">前一天</div>
-          <div class="view_day" v-on:click="nextDay">后一天</div>
+          <button class="view_day" v-on:click="preDay">前一天</button>
+          <button class="view_day" v-on:click="nextDay">后一天</button>
         </div>
       </div>
     </div>
@@ -63,8 +63,6 @@
               this.sum += parseInt(i.smtTransMoney);
             }
           }
-  
-          
         })
       },
       preDay() {
@@ -233,6 +231,7 @@
     align-items: center;
     justify-content: center;
     height: 40px;
+    font-size: 16px;
   }
   
   .basic {
