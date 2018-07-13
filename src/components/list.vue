@@ -6,13 +6,13 @@
         </div>
         <div class="center" v-if="!this.start">
             <div v-for="item in items" :key="item.id" class="items">
-                <div class="today">{{item.日期}}</div>
-                <div class="icon">
+                <div class="today inline-block vertical-align">{{item.日期}}</div>
+                <div class="icon inline-block vertical-align">
                     <svg viewBox="0 0 40.8 438.6">
                         <use xmlns:xlink="http://www.w3.org/1999/svg" xlink:href="#icon"></use>
                     </svg>
                 </div>
-                <div class="line">
+                <div class="line inline-block vertical-align">
                     <div class="today">总支出：{{item.总和.toFixed(2)}}</div>
                     <div class="col">
                         <div class="setting">一般：{{item.一般.toFixed(2)}}</div>
@@ -29,55 +29,61 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      start: false,
-      items: [],
-      data:
-        "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.XhjfuL0l4giQZAIVZN29RQwDFVgeoFZWnkhdYztr8pk"
-    };
-  },
-  created() {
-    if (window.location.pathname.split("/")[1])
-      this.data = window.location.pathname.split("/")[1];
-
-    fetch("/api/get_two/", {
-      headers: {
-        token: this.data,
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => {
-        return res.json();
-      })
-      .then(res => {
-        if (res.expend.length == 0) {
-          this.start = true;
-        } else {
-          this.items = res.expend;
+    export default {
+        data() {
+            return {
+                start: false,
+                items: [],
+                data: "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.XhjfuL0l4giQZAIVZN29RQwDFVgeoFZWnkhdYztr8pk",
+            }
+        },
+        created() {
+            if (window.location.pathname.split('/')[1])
+                this.data = window.location.pathname.split('/')[1];
+    
+            fetch('/api/get_two/', {
+                    headers: {
+                        "token": this.data,
+                        "Content-Type": "application/json"
+                    }
+                }).then(res => {
+                    return res.json()
+                })
+                .then(res => {
+                    if (res.expend.length == 0) {
+                        this.start = true
+                    } else {
+                        this.items = res.expend
+                    }
+                })
         }
-      });
-  }
-};
+    }
 </script>
 
 <style lang="sass">
 .today {
-    font-size: 16px;
+    font-size: 20px;
     color: #7d7d7d;
 }
 
 .icon {
-    width: 27px;
+    width: 10%;
     height: 300px;
     margin-left: 10px;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
+.vertical-align {
+    vertical-align: top;
+}
+
 .setting {
-    margin-bottom: 23px;
+    margin-bottom: 18px;
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 19px;
     color: #cdcdcd;
 }
 
@@ -105,10 +111,6 @@ export default {
     transform: translateY(70%);
   }
   .items {
-    margin-top: 20px;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    display: flex;
+      margin-top: 20px;
   }
 </style>

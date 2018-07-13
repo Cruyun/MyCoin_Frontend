@@ -17,8 +17,8 @@
           </ul>
         </div>
         <div class="btn">
-          <button class="view_day" v-on:click="preDay">前一天</button>
-          <button class="view_day" v-on:click="nextDay">后一天</button>
+          <div class="view_day" v-on:click="preDay">前一天</div>
+          <div class="view_day" v-on:click="nextDay">后一天</div>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
   
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth() + 1;
-        let currentDay = currentDate.getDay() + 1;
+        let currentDay = currentDate.getUTCDate();
         if (currentMonth > month || (currentMonth == month && currentDay > day)) {
           if (day == this.calendar[month]) {
             month++;
@@ -231,7 +231,6 @@
     align-items: center;
     justify-content: center;
     height: 40px;
-    font-size: 16px;
   }
   
   .basic {

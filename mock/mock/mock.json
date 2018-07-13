@@ -1,0 +1,192 @@
+{
+    "routes": [{
+        "name": "week",
+        "endpoint": "/:Int/week",
+        "template": "week",
+        "async": false
+    }, {
+        "name": "month",
+        "endpoint": "/:Int/month",
+        "template": "month",
+        "async": false
+    },{
+        "name": "card",
+        "endpoint": "/card",
+        "template": "card",
+        "async": false
+    },{
+        "name": "get_seven",
+        "endpoint": "/api/get_seven/",
+        "method": "get",
+        "async": true
+    }, {
+        "name": "get_month",
+        "endpoint": "/api/get_month/:Int/",
+        "method": "get",
+        "async": true
+    }, {
+        "name": "list",
+        "endpoint": "/:Int/list",
+        "template": "list",
+        "async": false
+    }, {
+        "name": "get_some",
+        "endpoint": "/api/get_some/",
+        "async": true
+    }, {
+        "name": "get_card",
+        "endpoint": "/api/card/",
+        "async": true
+    }
+],
+    "data": {
+        "get_some": {
+            "token": "haha",
+            "result": [{
+                "class": "一般",
+                "expend": 23
+            }, {
+                "class": "出行",
+                "expend": 23
+            }, {
+                "class": "娱乐",
+                "expend": 11
+            }, {
+                "class": "总和",
+                "expend": 88
+            }, {
+                "class": "教育",
+                "expend": 9
+            }, {
+                "class": "服饰",
+                "expend": 23
+            }, {
+                "class": "饮食",
+                "expend": 43
+            }]
+        },
+        "get_seven": {
+            "token": "haha",
+            "sumup": [{
+                "date": 1,
+                "expend": 23
+            }, {
+                "date": 2,
+                "expend": 22
+            }, {
+                "date": 3,
+                "expend": 29
+            }, {
+                "date": 4,
+                "expend": 40
+            }, {
+                "date": 5,
+                "expend": 33
+            }, {
+                "date": 6,
+                "expend": 73
+            }, {
+                "date": 7,
+                "expend": 79
+            }],
+            "maxDay": ["7月2日", 32],
+            "TotalExpend": 200,
+            "MaxClass": "教育",
+            "maxExpend": 71,
+            "result": [
+                { "class": "教育", "expend": 15 },
+                { "class": "一般", "expend": 12 },
+                { "class": "饮食", "expend": 21 },
+                { "class": "出行", "expend": 41 },
+                { "class": "娱乐", "expend": 31 },
+                { "class": "服饰", "expend": 71 }
+            ]
+        },
+        "get_month": {
+            "token": "haha",
+            "result": [
+                { "class": "教育", "expend": 852 },
+                { "class": "一般", "expend": 122 },
+                { "class": "饮食", "expend": 212 },
+                { "class": "出行", "expend": 412 },
+                { "class": "娱乐", "expend": 312 },
+                { "class": "服饰", "expend": 712 }
+            ],
+            "MaxClass": "教育",
+            "TotalExpend": 7123,
+            "maxExpend": 712
+        },
+        "get_card": {
+            "result": true,
+            "msg": "",
+            "list": [
+                {
+                    "title": "2018-07",
+                    "data": [
+                        {
+                            "smtDealName": "消费",
+                            "smtTransMoney": "2.0",
+                            "smtDealDateTimeTxt": "2018-07-05 11:52:42",
+                            "date": "昨天",
+                            "time": "11:52",
+                            "smtOrgName": "吧台左",
+                            "smtInMoney": "103.75",
+                            "smtOutMoney": "101.75"
+                        },
+                        {
+                            "smtDealName": "消费",
+                            "smtTransMoney": "11.0",
+                            "smtDealDateTimeTxt": "2018-07-05 11:51:34",
+                            "date": "昨天",
+                            "time": "11:51",
+                            "smtOrgName": "卤汁浇饭",
+                            "smtInMoney": "114.75",
+                            "smtOutMoney": "103.75"
+                        },
+                        {
+                            "smtDealName": "消费",
+                            "smtTransMoney": "4.3",
+                            "smtDealDateTimeTxt": "2018-07-05 07:35:06",
+                            "date": "昨天",
+                            "time": "07:35",
+                            "smtOrgName": "豆皮",
+                            "smtInMoney": "119.05",
+                            "smtOutMoney": "114.75"
+                        },
+                        {
+                            "smtDealName": "消费",
+                            "smtTransMoney": "4.0",
+                            "smtDealDateTimeTxt": "2018-07-05 07:33:03",
+                            "date": "昨天",
+                            "time": "07:33",
+                            "smtOrgName": "稀食",
+                            "smtInMoney": "123.05",
+                            "smtOutMoney": "119.05"
+                        },
+                        {
+                            "smtDealName": "消费",
+                            "smtTransMoney": "1.55",
+                            "smtDealDateTimeTxt": "2018-07-05 07:31:52",
+                            "date": "昨天",
+                            "time": "07:31",
+                            "smtOrgName": "大白案",
+                            "smtInMoney": "124.6",
+                            "smtOutMoney": "123.05"
+                        },
+                        {
+                            "smtDealName": "消费",
+                            "smtTransMoney": "1.55",
+                            "smtDealDateTimeTxt": "2018-07-05 07:31:38",
+                            "date": "昨天",
+                            "time": "07:31",
+                            "smtOrgName": "大白案",
+                            "smtInMoney": "126.15",
+                            "smtOutMoney": "124.6"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+}
